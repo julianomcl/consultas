@@ -1,7 +1,6 @@
 var http = require('http'),
     request = require('request'),
     iconv = require('iconv-lite'),
-    removerMascara = require('brasil').formatacoes.removerMascara,
 
     hostReceitaFederal = 'www.receita.fazenda.gov.br';
 
@@ -214,6 +213,24 @@ function obterCaptcha(callback) {
             });
         });
     });
+}
+
+function removerMascara(texto) {
+	if(typeof texto !== 'string') {
+		return texto;
+	}
+
+	return texto
+		.trim()
+		.replace(/\(/g, '')
+		.replace(/\)/g, '')
+		.replace(/\./g, '')
+		.replace(/\//g, '')
+		.replace(/-/g, '')
+		.replace(/\s/g, '')
+		.replace(/R\$/g, '')
+		.replace(/%/g, '')
+		.trim()
 }
 
 module.exports = {

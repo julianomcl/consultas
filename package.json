@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/brasil-js/consultas",
   "dependencies": {
-    "brasil": "0.0.45",
     "gammautils": "0.0.73",
     "iconv-lite": "^0.4.13",
     "inscricaoestadual": "0.0.4",
